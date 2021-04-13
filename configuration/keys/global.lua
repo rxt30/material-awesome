@@ -369,7 +369,7 @@ local global_keys = awful.util.table.join(
 		--{description = 'area/selected screenshot', group = 'Utility'}
 	--),
 	awful.key(
-		{modkey},
+		{modkey, 'Shift'},
 		'b',
 		function()
 			awesome.emit_signal('widget::blur:toggle')
@@ -464,8 +464,8 @@ local global_keys = awful.util.table.join(
 		{description = 'open default file manager', group = 'launcher'}
 	),
 	awful.key(
-		{modkey, 'Shift'}, 
-		'f',
+		{modkey}, 
+		'b',
 		function()
 			awful.spawn(apps.default.web_browser)
 		end,
