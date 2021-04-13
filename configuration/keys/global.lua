@@ -529,8 +529,8 @@ local global_keys = awful.util.table.join(
 		{description = 'open sidebar', group = 'launcher'}
 	),
 	awful.key(
-		{modkey, 'Shift'},
-		'r',
+		{modkey},
+		'p',
 		function()
 			local focused = awful.screen.focused()
 
