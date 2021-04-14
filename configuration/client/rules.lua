@@ -59,7 +59,7 @@ ruled.client.connect_signal(
 				}
 			},
 			properties = {
-				titlebars_enabled = false
+				titlebars_enabled = true
 			}
 		}
 

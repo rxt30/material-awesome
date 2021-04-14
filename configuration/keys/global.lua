@@ -161,7 +161,7 @@ local global_keys = awful.util.table.join(
 	),
 	awful.key(
 		{modkey, 'Shift'}, 
-		'F1',  
+		'j',  
 		function() 
 			awful.screen.focus_relative(-1) 
 		end,
@@ -169,12 +169,28 @@ local global_keys = awful.util.table.join(
 	),
 	awful.key(
 		{modkey, 'Shift'}, 
-		'F2', 
+		'k', 
 		function()
 			awful.screen.focus_relative(1)
 		end,
 		{ description = 'focus the next screen', group = 'screen'}
 	),
+    awful.key(
+        {modkey},
+        'j',
+        function()
+            awful.client.focus.byidx(1)
+        end,
+        {description = 'Focus next by index', group = 'client'}
+    ), 
+    awful.key(
+        {modkey},
+        'k',
+        function()
+            awful.client.focus.byidx(-1)
+        end,
+        {description = 'Focus previous by index', group = 'client'}
+    ), 
 	awful.key(
 		{modkey, 'Control'},
 		'n',
