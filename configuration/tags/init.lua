@@ -31,7 +31,7 @@ local tags = {
 		icon = icons.games,
 		default_app = apps.default.game,
 		gap = beautiful.useless_gap,
-		layout = awful.layout.suit.tile
+		layout = awful.layout.suit.floating
 	},
 	{
 		type = 'sandbox',
