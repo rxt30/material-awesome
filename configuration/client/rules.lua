@@ -152,7 +152,8 @@ ruled.client.connect_signal(
 			id = 'looking-glass',
 			rule_any = {
 				class = {
-					'looking-glass-client'
+					'looking-glass-client',
+					'Virt-manager'
 				}
 			},
 			properties = {
@@ -170,11 +171,13 @@ ruled.client.connect_signal(
 					'Steam',
 					'Lutris',
 					'Citra',
-					'supertuxkart'
+					'supertuxkart',
+					'Moonlight'
 				},
 				name = {
 					'Steam',
-					'Lutris'
+					'Lutris',
+					'Moonlight'
 				}
 			},
 			properties = {
