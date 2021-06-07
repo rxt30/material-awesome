@@ -12,7 +12,7 @@ return {
 		-- Default text editor
 		text_editor = 'geany',
 		-- Default file manager
-		file_manager = 'nautilus',
+		file_manager = 'thunar',
 		-- Default media player
 		multimedia = 'celluloid',
 		-- Default game, can be a launcher like steam
