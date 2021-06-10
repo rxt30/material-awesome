@@ -63,38 +63,81 @@ local top_panel = function(s, offset)
 	s.network       		= require('widget.network')()
 	s.info_center_toggle	= require('widget.info-center-toggle')()
 
-	panel : setup {
-		layout = wibox.layout.align.horizontal,
-		expand = 'none',
-		{
-			layout = wibox.layout.fixed.horizontal,
-			task_list(s),
-			add_button
-		},
-		nil, 
-		{
-			layout = wibox.layout.fixed.horizontal,
-			spacing = dpi(5),
-			{
-				s.systray,
-				left = dpi(5),
-				right = dpi(5),
-				top = dpi(12),
-				bottom = dpi(12),
-				widget = wibox.container.margin
-			},
-			s.tray_toggler,
-			--s.updater,
-			--s.screen_rec,
-			--s.mpd,
-			--s.network,
-			--s.bluetooth,
-			s.battery,
-			clock,
-			layout_box,
-			s.info_center_toggle
-		}
-	}
+    local battery_avaiable = true
+    local get_battery_avaiable = function()
+        awful.spawn.easy_async_with_shell(
+            'upower -i $(upower -e | grep BAT)',
+            function(stdout)
+                if stdout == nil or stdout == '' then
+                    panel : setup {
+                        layout = wibox.layout.align.horizontal,
+                        expand = 'none',
+                        {
+                            layout = wibox.layout.fixed.horizontal,
+                            task_list(s),
+                            add_button
+                        },
+                        nil, 
+                        {
+                            layout = wibox.layout.fixed.horizontal,
+                            spacing = dpi(5),
+                            {
+                                s.systray,
+                                left = dpi(5),
+                                right = dpi(5),
+                                top = dpi(12),
+                                bottom = dpi(12),
+                                widget = wibox.container.margin
+                            },
+                            s.tray_toggler,
+                            --s.updater,
+                            --s.screen_rec,
+                            --s.mpd,
+                            --s.network,
+                            --s.bluetooth,
+                            clock,
+                            layout_box,
+                            s.info_center_toggle
+                        }
+                    }
+                else
+                    panel : setup {
+                        layout = wibox.layout.align.horizontal,
+                        expand = 'none',
+                        {
+                            layout = wibox.layout.fixed.horizontal,
+                            task_list(s),
+                            add_button
+                        },
+                        nil, 
+                        {
+                            layout = wibox.layout.fixed.horizontal,
+                            spacing = dpi(5),
+                            {
+                                s.systray,
+                                left = dpi(5),
+                                right = dpi(5),
+                                top = dpi(12),
+                                bottom = dpi(12),
+                                widget = wibox.container.margin
+                            },
+                            s.tray_toggler,
+                            --s.updater,
+                            --s.screen_rec,
+                            --s.mpd,
+                            --s.network,
+                            --s.bluetooth,
+                            s.battery,
+                            clock,
+                            layout_box,
+                            s.info_center_toggle
+                        }
+                    }
+                end
+            end
+        )
+    end
+    get_battery_avaiable()
 
 	return panel
 end
