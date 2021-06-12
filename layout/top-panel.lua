@@ -72,8 +72,8 @@ local top_panel = function(s, offset)
                     panel : setup {
                         layout = wibox.layout.align.horizontal,
                         expand = 'none',
-                        require('layout.left-panel.action-bar')(s, panel, dpi(45)),
                         {
+                            require('layout.left-panel.action-bar')(s, panel, dpi(45)),
                             layout = wibox.layout.fixed.horizontal,
                             task_list(s),
                             add_button
@@ -105,8 +105,8 @@ local top_panel = function(s, offset)
                     panel : setup {
                         layout = wibox.layout.align.horizontal,
                         expand = 'none',
-                        require('layout.left-panel.action-bar')(s, panel, dpi(45)),
                         {
+                            require('layout.left-panel.action-bar')(s, panel, dpi(45)),
                             layout = wibox.layout.fixed.horizontal,
                             task_list(s),
                             add_button
