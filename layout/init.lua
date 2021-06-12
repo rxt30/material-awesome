@@ -8,7 +8,7 @@ screen.connect_signal(
 	'request::desktop_decoration',
 	function(s)
 		if s.index == 1 then
---			s.left_panel = left_panel(s)
+			s.left_panel = left_panel(s)
 			s.top_panel = top_panel(s, false)
 		else
 			s.top_panel = top_panel(s, false)

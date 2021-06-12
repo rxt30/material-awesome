@@ -7,20 +7,19 @@ local apps = require('configuration.apps')
 
 local left_panel = function(screen)
 	
-	local action_bar_width = dpi(45)
+	local action_bar_width = dpi(0)
 	local panel_content_width = dpi(350)
 
 	local panel = wibox {
 		screen = screen,
-		width = action_bar_width,
-		type = 'dock',
+		type = 'utility',
 		height = screen.geometry.height,
 		x = screen.geometry.x,
 		y = screen.geometry.y,
 		ontop = true,
 		shape = gears.shape.rectangle,
 		bg = beautiful.background,
-		fg = beautiful.fg_normal
+		fg = beautiful.fg_normal,
 	}
 
 	panel.opened = false
@@ -63,7 +62,7 @@ local left_panel = function(screen)
 
 		wibox_backdrop.x = geo.x
 		wibox_backdrop.y = geo.y
-		wibox_backdrop.width = geo.width
+		wibox_backdrop.width = 1
 		wibox_backdrop.height = geo.height
 
 		-- Create an image surface that is as large as the wibox_panel screen
@@ -88,7 +87,6 @@ local left_panel = function(screen)
 	end
 
 	local open_panel = function(should_run_rofi)
-		panel.width = action_bar_width + panel_content_width
 		backdrop.visible = true
 		update_backdrop(backdrop, panel)
 		panel:get_children_by_id('panel_content')[1].visible = true
@@ -99,7 +97,6 @@ local left_panel = function(screen)
 	end
 
 	local close_panel = function()
-		panel.width = action_bar_width
 		panel:get_children_by_id('panel_content')[1].visible = false
 		backdrop.visible = false
 		update_backdrop(backdrop, panel)
@@ -145,8 +142,7 @@ local left_panel = function(screen)
 				require('layout.left-panel.dashboard')(screen, panel),
 				layout = wibox.layout.stack
 			}
-		},
-		require('layout.left-panel.action-bar')(screen, panel, action_bar_width)
+		}
 	}
 	return panel
 end
