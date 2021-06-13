@@ -194,7 +194,7 @@ client.connect_signal(
 		if c.type == 'normal' then
 
 			if c.class == 'kitty' then
-				create_vertical_bar(c, 'left', '#00000099', beautiful.titlebar_size)
+                return
 
 			elseif c.class == 'firefox' then
 				create_vertical_bar(c, 'left', beautiful.background, beautiful.titlebar_size)
