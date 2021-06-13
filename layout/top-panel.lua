@@ -6,6 +6,7 @@ local icons = require('theme.icons')
 local dpi = beautiful.xresources.apply_dpi
 local clickable_container = require('widget.clickable-container')
 local task_list = require('widget.task-list')
+local tag_list = require('widget.tag-list')
 
 local top_panel = function(s, offset)
 
@@ -73,13 +74,13 @@ local top_panel = function(s, offset)
                         layout = wibox.layout.align.horizontal,
                         expand = 'none',
                         {
-                            require('layout.left-panel.action-bar')(s, panel, dpi(45)),
                             layout = wibox.layout.fixed.horizontal,
                             task_list(s),
                             add_button
                         },
-                        nil, 
+                        nil,
                         {
+                            tag_list(s),
                             layout = wibox.layout.fixed.horizontal,
                             spacing = dpi(5),
                             {
@@ -106,13 +107,13 @@ local top_panel = function(s, offset)
                         layout = wibox.layout.align.horizontal,
                         expand = 'none',
                         {
-                            require('layout.left-panel.action-bar')(s, panel, dpi(45)),
                             layout = wibox.layout.fixed.horizontal,
                             task_list(s),
                             add_button
                         },
                         nil, 
                         {
+                            tag_list(s),
                             layout = wibox.layout.fixed.horizontal,
                             spacing = dpi(5),
                             {
