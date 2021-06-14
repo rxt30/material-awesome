@@ -20,7 +20,7 @@ local top_panel = function(s, offset)
 		ontop = true,
 		screen = s,
 		type = 'dock',
-		height = dpi(45),
+		height = dpi(35),
 		width = s.geometry.width - offsetx,
 		x = s.geometry.x + offsetx,
 		y = s.geometry.y,
@@ -31,7 +31,7 @@ local top_panel = function(s, offset)
 
 	panel:struts
 	{
-		top = dpi(45)
+		top = dpi(35)
 	}
 
 	panel:connect_signal(
